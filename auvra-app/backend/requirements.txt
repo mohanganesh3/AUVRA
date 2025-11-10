@@ -1,0 +1,22 @@
+# Auvra Hormone Assessment Backend
+# Python 3.11+ recommended (prebuilt wheels for pydantic-core)
+
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Data Validation (newer version has prebuilt wheels for Python 3.13)
+pydantic==2.8.2
+
+# AI/LLM Integration
+google-generativeai==0.3.1
+
+# Database (optional for now)
+# SQLAlchemy==2.0.23
+# psycopg2-binary==2.9.9
+
+# Utilities
+python-dotenv==1.0.0
+
+# Testing
+pytest==8.2.2

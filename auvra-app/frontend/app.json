@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Auvra",
+    "slug": "auvra-hormone-assessment",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#F5E6F9"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.auvra.hormoneassessment"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#F5E6F9"
+      },
+      "package": "com.auvra.hormoneassessment"
+    },
+    "web": {
+    }
+  }
+}

@@ -1,0 +1,70 @@
+// API Service for Auvra Backend
+// Handles all HTTP requests to the Flask backend
+
+import axios from 'axios';
+
+// IMPORTANT: Change this to your computer's local IP address
+// Find it by running: ipconfig getifaddr en0 (Mac) or ipconfig (Windows)
+// Example: const API_BASE_URL = 'http://192.168.1.100:5000';
+const API_BASE_URL = 'http://localhost:5000';
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  timeout: 30000, // 30 seconds
+});
+
+// Health check
+export const healthCheck = async () => {
+  try {
+    const response = await api.get('/health');
+    return response.data;
+  } catch (error) {
+    console.error('Health check failed:', error);
+    throw error;
+  }
+};
+
+// Complete hormone assessment
+export const submitAssessment = async (assessmentData) => {
+  try {
+    console.log('Submitting assessment to:', `${API_BASE_URL}/api/v1/assess`);
+    const response = await api.post('/api/v1/assess', assessmentData);
+    return response.data;
+  } catch (error) {
+    console.error('Assessment submission failed:', error.response?.data || error.message);
+    throw error;
+  }
+};
+
+// Quick assessment (for testing)
+export const submitQuickAssessment = async (quickData) => {
+  try {
+    const response = await api.post('/api/v1/assess/quick', quickData);
+    return response.data;
+  } catch (error) {
+    console.error('Quick assessment failed:', error);
+    throw error;
+  }
+};
+
+// Validate custom "Others" input
+export const validateOthersInput = async (input, context) => {
+  try {
+    const response = await api.post('/api/v1/validate/others', {
+      input,
+      context,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Others validation failed:', error);
+    throw error;
+  }
+};
+
+// Export the base URL for reference
+export { API_BASE_URL };
+
+export default api;
