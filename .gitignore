@@ -21,10 +21,11 @@ yarn-error.log
 
 # Expo / React Native
 .expo/
-.expo-shared/
 
 # Build outputs
 dist/
+#!/bin/bash
+set -e
 build/
 
 # IDEs
